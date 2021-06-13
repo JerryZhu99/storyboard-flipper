@@ -83,6 +83,7 @@ const transform = (line) => {
   if (line.startsWith('Sprite') || line.startsWith('Animation')) {
     const parts = line.split(',');
     parts[2] = parts[2].replace(/(Top|Bottom)/g, x => x === 'Top' ? 'Bottom' : 'Top');
+    parts[5] = STORYBOARD_HEIGHT - parts[5];
     return parts.join(',');
   } else if (line[0] === ' ' || line[0] === '_') {
     const parts = line.split(',');
